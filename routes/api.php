@@ -9,7 +9,10 @@ Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('movies', [AuthController::class, 'allMovies']);
+    Route::get('movies', [MovieController::class, 'allMovies']);
+    Route::get('showmovie/{id}', [MovieController::class, 'showMovie']);
+    Route::get('director/{id}', [MovieController::class, 'getDirector']);
+    Route::get('actor/{id}', [MovieController::class, 'getActor']);
 });
 
 
